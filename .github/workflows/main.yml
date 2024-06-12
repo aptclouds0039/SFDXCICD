@@ -40,7 +40,7 @@ jobs:
             - name: 'Populate auth file with SFDX_URL secret of the integration and staging orgs'
               shell: bash
               run: |
-                  echo ${{ secrets.SFDX_DEV_URL}} > ./SFDX_INTEGRATION_URL.txt
+                  echo ${{ secrets.ACC_SFDX_URL}} > ./ACC_SFDX_URL.txt
                 
             - name: 'Create delta packages for new, modified or deleted metadata'
               run: | 
@@ -49,7 +49,7 @@ jobs:
 
             # Authenticate to org
             - name: 'Authenticate to Integration Org'
-              run: sf org login sfdx-url --sfdx-url-stdin ${{ secrets.ACC_SFDX_URL}}
+              run: sf org login sfdx-url --sfdx-url-file ./ACC_SFDX_URL.txt
 
             - name: 'Deploy the entire branch to Integration org'
               run: sfdx force:source:deploy -p force-app --testlevel RunLocalTests --json
