@@ -49,7 +49,7 @@ jobs:
 
             # Authenticate to org
             - name: 'Authenticate to Integration Org'
-              run: sf org login sfdx-url --sfdx-url-stdin echo ${{ secrets.SFDX_DEV_URL}}
+              run: sf org login sfdx-url --sfdx-url-stdin ${{ secrets.ACC_SFDX_URL}}
 
             - name: 'Deploy the entire branch to Integration org'
               run: sfdx force:source:deploy -p force-app --testlevel RunLocalTests --json
