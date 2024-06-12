@@ -26,7 +26,7 @@ private class TesttingDeploymentTest {
     static void myUnitTest() {
         // TO DO: implement unit test
         test.startTest();
-        TestingDeployment dep = new TestingDeployment();
+        TestingDeployment dep = new TestingDeployment(); 
         test.stopTest();
     }
 }
