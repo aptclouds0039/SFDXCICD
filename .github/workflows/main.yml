@@ -49,7 +49,7 @@ jobs:
 
             # Authenticate to org
             - name: 'Authenticate to Integration Org'
-              run: sf org login sfdx-url --sfdx-url-file ./ACC_SFDX_URL.txt
+              run: sfdx auth:sfdxurl:store -f ./ACC_SFDX_URL.txt
 
             - name: 'Deploy the entire branch to Integration org'
               run: sfdx force:source:deploy -p force-app --testlevel RunLocalTests --json
